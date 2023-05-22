@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getProjectApiCall } from '../../apiCalls/projectApiCalls';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {getProjectApiCall} from '../../apiCalls/projectApiCalls';
 
 function ProjectList() {
     const [error, setError] = useState(null);
@@ -28,22 +28,38 @@ function ProjectList() {
 
     let content;
     if (error) {
-        content = <p>Error: {error.message}</p>;
+        content = <p className="error">Error: {error.message}</p>;
     } else if (!isLoaded) {
-        content = <p>Loading...</p>;
+        content = <p className="loading">Loading...</p>;
     } else if (projects.length === 0) {
-        content = <p>No projects found.</p>;
+        content = <p className="no-projects">No projects found.</p>;
     } else {
         content = (
-            <div>
-                <h1>Project List</h1>
-                {projects.map(project => (
-                    <div key={project.id}>
-                        <h3>{project.name}</h3>
-                        <p>{project.description}</p>
-                    </div>
-                ))}
+            <div className="project-list">
+                <h1 className="project-list-title">Project List</h1>
+                <table className="project-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {projects.map(project => (
+                        <tr key={project.id}>
+                            <td>{project.name}</td>
+                            <td>{project.description}</td>
+                            <td>{project.startDate ? new Date(project.startDate).toLocaleDateString() : ''}</td>
+                            <td>{project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+
             </div>
+
         );
     }
 
