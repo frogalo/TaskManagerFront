@@ -48,7 +48,9 @@ function ProjectList() {
                     </thead>
                     <tbody>
                     {projects.map(project => (
-                        <tr key={project.id}>
+                        <tr onClick={() => {
+                            window.location = `/projects/${project.id}`;
+                        }} key={project.id}>
                             <td>{project.name}</td>
                             <td>{project.description}</td>
                             <td>{project.startDate ? new Date(project.startDate).toLocaleDateString() : ''}</td>
@@ -57,9 +59,7 @@ function ProjectList() {
                     ))}
                     </tbody>
                 </table>
-
             </div>
-
         );
     }
 

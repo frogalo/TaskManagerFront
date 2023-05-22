@@ -8,9 +8,7 @@ header {
     color: #333;
     text-decoration: none;
     font-size: 44px;
-    font-family: 'Tahoma', cursive;
 }
-
 
 /* Styl dla nawigacji */
 nav {
@@ -61,42 +59,6 @@ nav a:hover {
     color: #333;
 }
 
-.project-container {
-    margin-bottom: 20px;
-}
-
-.project-name {
-    color: #333;
-}
-
-.project-description {
-    color: #666;
-}
-
-.section-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-right: 20px;
-}
-
-.section-buttons .button-add {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-}
-
-
-
-
-.section-buttons .button-add:hover {
-    background-color: #555;
-}
-
 .project-list {
     margin-top: 20px;
 }
@@ -129,4 +91,34 @@ nav a:hover {
     color: #333;
 }
 
+.section-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
 
+.section-buttons .button-add {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Add styles for links within the project table */
+.project-table a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-table tbody tr:hover {
+    cursor: pointer;
+}
+
+.th-settings {
+    width: 90px;
+    text-align: center;
+}
