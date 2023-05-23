@@ -129,11 +129,15 @@ function ProjectDetails() {
                         <div className="task-details-buttons">
                             <button className="edit-button">Edit</button>
                             <button className="status-button">Change Status</button>
-                            <button className="complete-button">Complete</button>
+                            <button className="complete-button">Complete Task</button>
                         </div>
                     </div>
                 )}
             </Modal>
+            <div className="project-details-buttons">
+            <button className="add-button">Add task</button>
+            <button className="edit-project-button">Edit project</button>
+            </div>
         </div>
     );
 }
