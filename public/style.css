@@ -122,3 +122,177 @@ nav a:hover {
     width: 90px;
     text-align: center;
 }
+
+/*==================details==================*/
+
+.project-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.project-details-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-details-description {
+    font-size: 16px;
+    color: #555;
+}
+
+.project-details-date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.project-details-subtitle {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.project-details-task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-details-task {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.project-details-no-tasks {
+    font-size: 14px;
+    color: #777;
+}
+
+.project-details-task-content.before {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    background: #4679BD;
+}
+
+.project-details-task-content {
+    background: #528cd5;
+}
+
+.project-details-task.before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.project-details-task {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Task status styles */
+.project-details-task.pending .project-details-task-content {
+    background: #c50404;
+}
+
+.project-details-task.in_progress .project-details-task-content {
+    background: #ea9f14;
+}
+
+.project-details-task.Complete .project-details-task-content {
+    background: green;
+}
+
+.project-details-task-hover {
+
+    transform: scale(1.1);
+    background-color: lightgray;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+
+}
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+
+/*modal*/
+
+.task-details-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 60%;
+    max-width: 600px;
+    border-radius: 4px;
+}
+
+.task-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #171717;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-details-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.edit-button,
+.status-button,
+.complete-button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4679BD;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-button:hover,
+.status-button:hover,
+.complete-button:hover {
+    background-color: #528cd5;
+}
+
+.edit-button:focus,
+.status-button:focus,
+.complete-button:focus {
+    outline: none;
+}
+
+
+
