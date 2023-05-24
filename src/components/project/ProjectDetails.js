@@ -83,6 +83,10 @@ function ProjectDetails() {
             <p className="project-details-date">
                 End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}
             </p>
+            
+            <div className="project-details-buttons">
+                <button className="edit-project-button">Edit project</button>
+            </div>
             <h2 className="project-details-subtitle">Tasks:</h2>
             <div className="project-details-task-grid">
                 {project.tasks && project.tasks.length > 0 ? (
@@ -97,9 +101,6 @@ function ProjectDetails() {
                         >
                             <div className="project-details-task-content">
                                 <h3>{task.name}</h3>
-                                <p>{task.description}</p>
-                                <p>Start Date: {task.startDate ? new Date(task.startDate).toLocaleDateString() : ''}</p>
-                                <p>End Date: {task.endDate ? new Date(task.endDate).toLocaleDateString() : ''}</p>
                                 <p>Status: {task.status}</p>
                             </div>
                         </div>
@@ -136,7 +137,7 @@ function ProjectDetails() {
             </Modal>
             <div className="project-details-buttons">
             <button className="add-button">Add task</button>
-            <button className="edit-project-button">Edit project</button>
+
             </div>
         </div>
     );

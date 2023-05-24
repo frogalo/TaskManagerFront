@@ -247,9 +247,10 @@ nav a:hover {
 }
 
 .project-details-buttons {
-    justify-content: center;
+    justify-content: left;
     margin: 0;
     position: relative;
+    padding-top: 10px;
 }
 
 /*modal*/
