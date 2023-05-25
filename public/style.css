@@ -333,5 +333,35 @@ nav a:hover {
     outline: none;
 }
 
+.welcome-text {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.sign-out-button {
+    padding: 8px 12px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+
+
 
 
