@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {getProjectApiCall} from '../../apiCalls/projectApiCalls';
+import ProjectForm from './ProjectForm';
 
 function ProjectList() {
     const [error, setError] = useState(null);
@@ -68,7 +69,9 @@ function ProjectList() {
             {content}
             <p className="section-buttons">
                 <Link to="/projects/add" className="button-add">Add New Project</Link>
+
             </p>
+
         </main>
     );
 }
