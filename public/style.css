@@ -252,9 +252,6 @@ nav a:hover {
     position: relative;
     padding-top: 10px;
 }
-
-/*modal*/
-
 .task-details-modal {
     position: absolute;
     top: 50%;
@@ -265,6 +262,7 @@ nav a:hover {
     width: 60%;
     max-width: 600px;
     border-radius: 4px;
+    z-index: 9999; /* Add this line to ensure the modal is on top of other elements */
 }
 
 .task-details-overlay {
@@ -275,10 +273,10 @@ nav a:hover {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     border: 2px solid #171717;
-    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9998; /* Decrease the z-index value to be below the modal */
 }
 
 .task-details-buttons {
@@ -287,15 +285,23 @@ nav a:hover {
     margin-top: 20px;
 }
 
+/* Adjust the styles for the buttons to ensure consistent appearance */
 .edit-button,
 .status-button,
 .complete-button {
     padding: 8px 16px;
     border: none;
-    background-color: #4679BD;
+    background-color: #4679bd;
     color: white;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* Add a hover effect for the buttons */
+.edit-button:hover,
+.status-button:hover,
+.complete-button:hover {
+    background-color: #3d6da9;
 }
 
 .delete-button {

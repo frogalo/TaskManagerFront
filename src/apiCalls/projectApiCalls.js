@@ -38,3 +38,25 @@ export function deleteProjectApiCall(projectId) {
     });
 }
 
+export function addTaskToProjectApiCall(projectId, task) {
+    const url = `${projectsBaseUrl}/${projectId}/tasks`;
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(task)
+    };
+
+    return fetch(url, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to add task to project');
+            }
+            return response.json();
+        })
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            throw error;
+        });
+}

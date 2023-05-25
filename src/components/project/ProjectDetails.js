@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import {getProjectByIdApiCall} from '../../apiCalls/projectApiCalls';
 import Modal from 'react-modal';
+import {Link} from 'react-router-dom';
 
 function ProjectDetails() {
     const {projectId} = useParams();
@@ -30,6 +31,7 @@ function ProjectDetails() {
                 setIsLoading(false);
             });
     }, [projectId]);
+
 
     const handleTaskHover = (taskId) => {
         const taskElement = document.getElementById(`task_${taskId}`);
@@ -83,7 +85,7 @@ function ProjectDetails() {
             <p className="project-details-date">
                 End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}
             </p>
-            
+
             <div className="project-details-buttons">
                 <button className="edit-project-button">Edit project</button>
             </div>
@@ -122,22 +124,31 @@ function ProjectDetails() {
                     <div>
                         <h2>{selectedTask.name}</h2>
                         <p>Description: {selectedTask.description}</p>
-                        <p>Start
-                            Date: {selectedTask.startDate ? new Date(selectedTask.startDate).toLocaleDateString() : ''}</p>
-                        <p>End
-                            Date: {selectedTask.endDate ? new Date(selectedTask.endDate).toLocaleDateString() : ''}</p>
+                        <p>
+                            Start Date:{' '}
+                            {selectedTask.startDate
+                                ? new Date(selectedTask.startDate).toLocaleDateString()
+                                : ''}
+                        </p>
+                        <p>
+                            End Date:{' '}
+                            {selectedTask.endDate
+                                ? new Date(selectedTask.endDate).toLocaleDateString()
+                                : ''}
+                        </p>
                         <p>Status: {selectedTask.status}</p>
                         <div className="task-details-buttons">
                             <button className="edit-button">Edit</button>
                             <button className="status-button">Change Status</button>
-                            <button className="complete-button">Complete Task</button>
+                            <button className="complete-button">Delete</button>
                         </div>
                     </div>
                 )}
             </Modal>
             <div className="project-details-buttons">
-            <button className="add-button">Add task</button>
-
+                <Link to={`/tasks/add?projectId=${projectId}`} className="add-button">
+                    Add task
+                </Link>
             </div>
         </div>
     );

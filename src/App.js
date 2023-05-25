@@ -7,6 +7,7 @@ import ProjectList from './components/project/ProjectList';
 import ProjectDetails from './components/project/ProjectDetails';
 import LoginForm from './components/LoginForm'
 import ProjectForm from './components//project/ProjectForm'
+import TaskForm from "./components/task/TaskForm";
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
                 <Route path="/projects/:projectId" element={<ProjectDetails/>}/>
                 <Route path="/login" element={<LoginForm/>}/>
                 <Route path="/projects/add" element={<ProjectForm/>}/>
-
+                <Route path="/tasks/add" element={<TaskForm/>}/>
             </Routes>
             <Footer/>
         </Router>
