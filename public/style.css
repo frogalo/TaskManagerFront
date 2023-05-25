@@ -298,6 +298,23 @@ nav a:hover {
     cursor: pointer;
 }
 
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-button img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.delete-button:hover img {
+    transform: scale(1.2);
+}
+
 .edit-button:hover,
 .status-button:hover,
 .complete-button:hover {

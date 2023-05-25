@@ -12,7 +12,7 @@ export function getProjectByIdApiCall(projectId) {
 export function addProjectApiCall(project) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(project)
     };
 
@@ -24,3 +24,17 @@ export function addProjectApiCall(project) {
             throw error;
         });
 }
+
+export function deleteProjectApiCall(projectId) {
+    const url = `${projectsBaseUrl}/${projectId}`;
+    return fetch(url, {
+        method: 'DELETE',
+    }).then((response) => {
+        if (response.ok) {
+            return response;
+        } else {
+            throw new Error(`Failed to delete project. Status: ${response.status}`);
+        }
+    });
+}
+
