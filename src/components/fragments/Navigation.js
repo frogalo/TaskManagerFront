@@ -7,13 +7,10 @@ class Navigation extends React.Component {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/projects">Projects</Link>
+                        <Link to="/projects">My Projects</Link>
                     </li>
                     <li>
-                        <Link to="/tasks">Tasks</Link>
-                    </li>
-                    <li>
-                        <Link to="/users">Users</Link>
+                        <Link to="/tasks">My Tasks</Link>
                     </li>
                 </ul>
             </nav>

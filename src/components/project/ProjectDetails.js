@@ -1,9 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useParams} from 'react-router-dom';
-import {getProjectByIdApiCall} from '../../apiCalls/projectApiCalls';
+import {deleteTaskApiCall, getProjectByIdApiCall} from '../../apiCalls/projectApiCalls';
 import Modal from 'react-modal';
 import {Link} from 'react-router-dom';
-
 function ProjectDetails() {
     const {projectId} = useParams();
     const [project, setProject] = useState(null);
@@ -50,7 +49,9 @@ function ProjectDetails() {
     const handleTaskClick = (task) => {
         setSelectedTask(task);
         setShowTaskDetailsModal(true);
+        console.log("Task ID:", task.id); // Add this line to log the task ID
     };
+
 
     const handleCloseModal = () => {
         setShowTaskDetailsModal(false);
@@ -62,6 +63,24 @@ function ProjectDetails() {
             handleCloseModal();
         }
     };
+
+    const handleDeleteTask = () => {
+        if (selectedTask) {
+            const taskId = selectedTask.id;
+            deleteTaskApiCall(taskId)
+                .then(() => {
+                    // Task deleted successfully, perform any necessary actions (e.g., refresh data)
+                    console.log('Task deleted successfully');
+                    // Close the modal and reset selected task
+                    handleCloseModal();
+                })
+                .catch((error) => {
+                    // Handle the error (e.g., show an error message)
+                    console.error('Failed to delete task:', error);
+                });
+        }
+    };
+
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -140,7 +159,9 @@ function ProjectDetails() {
                         <div className="task-details-buttons">
                             <button className="edit-button">Edit</button>
                             <button className="status-button">Change Status</button>
-                            <button className="complete-button">Delete</button>
+                            <button className="complete-button" onClick={handleDeleteTask}>
+                                Delete
+                            </button>
                         </div>
                     </div>
                 )}

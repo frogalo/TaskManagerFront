@@ -25,6 +25,24 @@ export function addProjectApiCall(project) {
         });
 }
 
+
+export function deleteTaskApiCall(taskId) {
+    const url = `${projectsBaseUrl}/tasks/${taskId}`;
+    return fetch(url, {
+        method: 'DELETE',
+    })
+        .then((response) => {
+            if (response.ok) {
+                return response;
+            } else {
+                throw new Error(`Failed to delete task. Status: ${response.status}`);
+            }
+        })
+        .catch((error) => {
+            throw error;
+        });
+}
+
 export function deleteProjectApiCall(projectId) {
     const url = `${projectsBaseUrl}/${projectId}`;
     return fetch(url, {
