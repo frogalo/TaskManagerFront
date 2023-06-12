@@ -1,10 +1,28 @@
+:root {
+    --text: #000000;
+    --background: #f2f2ed;
+    --primary-button: #e5e5e5;
+    --secondary-button: #ffffff;
+    --accent: #304245;
+    --accent2: #453042;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--background);
+}
+
+
 /* Styl dla nawigacji */
 ul {
     display: flex;
     flex-direction: row;
     align-items: start;
     list-style-type: none;
-    background-color: #282c34;
+    background-color: var(--accent);
 }
 
 li {
@@ -16,7 +34,7 @@ a {
     display: block;
     padding: 4px 30px 4px 0;
     font-family: Lato, sans-serif;
-    color: #ecf0f1;
+    color: var(--secondary-button);
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
@@ -29,14 +47,14 @@ a::after {
     left: 0;
     width: 100%;
     height: 3px;
-    background: #3498db;
+    background: var(--primary-button);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.5s;
 }
 
 a:hover {
-    color: #d7d7d7;
+    color: #ffffff;
 }
 
 a:hover::after {
@@ -46,7 +64,7 @@ a:hover::after {
 
 
 .error {
-    color: red;
+    color: var(--accent);
 }
 
 .loading {
@@ -57,10 +75,6 @@ a:hover::after {
     color: blue;
 }
 
-.project-list-title {
-    font-size: 24px;
-    color: #333;
-}
 
 .project-list {
     margin-top: 20px;
@@ -74,24 +88,24 @@ a:hover::after {
 .project-table th,
 .project-table td {
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--accent);
 }
 
 .project-table th {
-    background-color: #f2f2f2;
+    background-color: var(--background);
     font-weight: bold;
 }
 
 .project-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--background);
 }
 
 .project-table tr:hover {
-    background-color: #f5f5f5;
+    background-color: var(--background);
 }
 
 .project-table td {
-    color: #333;
+    color: var(--text);
 }
 
 .section-buttons {
@@ -103,15 +117,15 @@ a:hover::after {
 }
 
 .section-buttons .button-add {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--accent);
+    color: var(--secondary-button);
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
 }
 
-/* Add styles for links within the project table */
+
 .project-table a {
     text-decoration: none;
     color: inherit;
@@ -119,6 +133,7 @@ a:hover::after {
 
 .project-table tbody tr:hover {
     cursor: pointer;
+    background-color: #efefeb;
 }
 
 .th-settings {
@@ -132,30 +147,21 @@ a:hover::after {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: var(--background);
     border-radius: 5px;
 }
 
 .project-details-title {
     font-size: 24px;
-    color: #333;
+    color: var(--text);
     margin-bottom: 10px;
 }
 
-.project-details-description {
-    font-size: 16px;
-    color: #555;
-}
 
-.project-details-date {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 5px;
-}
 
 .project-details-subtitle {
     font-size: 20px;
-    color: #333;
+    color: var(--text);
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -167,7 +173,7 @@ a:hover::after {
 
 .project-details-task {
     font-size: 16px;
-    color: #555;
+    color: var(--text);
     margin-bottom: 5px;
 }
 
@@ -225,29 +231,23 @@ a:hover::after {
 
 }
 
-.add-button {
-    background-color: #4CAF50;
+.add-button, .edit-project-button {
+    background-color: #304245;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
-.add-button:hover {
-    background-color: #45a049;
+.add-button:hover, .edit-project-button {
+    background-color: #453042;
 }
 
-.edit-project-button {
-    background-color: #ffa700;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 20px;
-}
 
 .project-details-buttons {
     justify-content: left;
@@ -292,7 +292,8 @@ a:hover::after {
 /* Adjust the styles for the buttons to ensure consistent appearance */
 .edit-button,
 .status-button,
-.complete-button {
+.complete-button,
+.add-comment-button {
     padding: 8px 16px;
     border: none;
     background-color: #4679bd;
@@ -304,7 +305,8 @@ a:hover::after {
 /* Add a hover effect for the buttons */
 .edit-button:hover,
 .status-button:hover,
-.complete-button:hover {
+.complete-button:hover,
+.add-comment-button {
     background-color: #3d6da9;
 }
 
@@ -327,20 +329,25 @@ a:hover::after {
 
 .edit-button:hover,
 .status-button:hover,
-.complete-button:hover {
+.complete-button:hover,
+.add-comment-button {
     background-color: #528cd5;
 }
 
 .edit-button:focus,
 .status-button:focus,
-.complete-button:focus {
+.complete-button:focus,
+.add-comment-button {
     outline: none;
 }
 
+.task-details-buttons {
+    padding-bottom: 20px;
+}
 
 .sign-out-button {
     padding: 8px 12px;
-    background-color: #f44336;
+    background-color: var(--accent2);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -438,4 +445,78 @@ a:hover::after {
 .sign-out-button {
     margin-left: 10px;
     margin-right: 20px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.comment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.comment-table th,
+.comment-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.comment-table .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-table .comment-author {
+    display: flex;
+    align-items: center;
+}
+
+.comment-table .comment-content {
+    max-width: 500px;
+    word-break: break-word;
+}
+
+.project-details-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-details-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.project-details-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.project-details-date {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.project-details-buttons {
+    margin-top: 10px;
+}
+
+
+
+.footer {
+    margin-top: 50px;
 }

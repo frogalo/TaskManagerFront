@@ -3,6 +3,11 @@ import {useParams} from 'react-router-dom';
 import {deleteTaskApiCall, getProjectByIdApiCall} from '../../apiCalls/projectApiCalls';
 import Modal from 'react-modal';
 import {Link} from 'react-router-dom';
+import imgAvatar1 from '../../images/img_avatar1.png';
+import imgAvatar2 from '../../images/img_avatar2.png';
+import imgAvatar3 from '../../images/img_avatar3.png';
+
+
 function ProjectDetails() {
     const {projectId} = useParams();
     const [project, setProject] = useState(null);
@@ -96,17 +101,18 @@ function ProjectDetails() {
 
     return (
         <div className="project-details">
+            <div>
             <h1 className="project-details-title">{project.name}</h1>
             <p className="project-details-description">{project.description}</p>
             <p className="project-details-date">
-                Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : ''}
+                Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'not defined'}
             </p>
             <p className="project-details-date">
-                End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}
+                End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : 'not defined'}
             </p>
-
+            </div>
             <div className="project-details-buttons">
-                <button className="edit-project-button">Edit project</button>
+                <a href={`/projects/edit?projectId=${projectId}`} className="add-button">Edit project</a>
             </div>
             <h2 className="project-details-subtitle">Tasks:</h2>
             <div className="project-details-task-grid">
@@ -136,7 +142,7 @@ function ProjectDetails() {
                 contentLabel="Task Details"
                 className="task-details-modal"
                 overlayClassName="task-details-overlay"
-                ref={overlayRef}
+                appElement={document.getElementById('root')}
                 onClick={handleOverlayClick}
             >
                 {selectedTask && (
@@ -145,15 +151,11 @@ function ProjectDetails() {
                         <p>Description: {selectedTask.description}</p>
                         <p>
                             Start Date:{' '}
-                            {selectedTask.startDate
-                                ? new Date(selectedTask.startDate).toLocaleDateString()
-                                : ''}
+                            {selectedTask.startDate ? new Date(selectedTask.startDate).toLocaleDateString() : ''}
                         </p>
                         <p>
                             End Date:{' '}
-                            {selectedTask.endDate
-                                ? new Date(selectedTask.endDate).toLocaleDateString()
-                                : ''}
+                            {selectedTask.endDate ? new Date(selectedTask.endDate).toLocaleDateString() : ''}
                         </p>
                         <p>Status: {selectedTask.status}</p>
                         <div className="task-details-buttons">
@@ -163,9 +165,57 @@ function ProjectDetails() {
                                 Delete
                             </button>
                         </div>
+                        <div className="comment-section">
+                            <h3>Comments:</h3>
+                            <table className="comment-table">
+                                <thead>
+                                <tr>
+                                    <th>Author</th>
+                                    <th>Date</th>
+                                    <th>Comment</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {selectedTask.comments.map(comment => (
+                                    <tr key={comment.id}>
+                                        <td>
+                                            <img src={`img_avatar${comment.user.id % 3 + 1}.png`} alt="Avatar" className="avatar" />
+                                            {comment.user.name}
+                                        </td>
+                                        <td>{comment.createdDate}</td>
+                                        <td>{comment.content}</td>
+                                    </tr>
+                                ))}
+                                {/* Example comments */}
+                                <tr>
+                                    <td>
+                                        <img src={imgAvatar1} alt="Avatar" className="avatar" />                                        John Doe
+                                    </td>
+                                    <td>2023-06-10</td>
+                                    <td>This is an example comment.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src={imgAvatar2} alt="Avatar" className="avatar" />                                        Jane Smith
+                                    </td>
+                                    <td>2023-06-11</td>
+                                    <td>This is another example comment.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src={imgAvatar3} alt="Avatar" className="avatar" />                                        Mike Johnson
+                                    </td>
+                                    <td>2023-06-12</td>
+                                    <td>This is a third example comment.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button className="add-comment-button">Add Comment</button>
                     </div>
                 )}
             </Modal>
+
             <div className="project-details-buttons">
                 <Link to={`/tasks/add?projectId=${projectId}`} className="add-button">
                     Add task
