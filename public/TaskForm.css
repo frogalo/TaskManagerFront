@@ -1,38 +1,135 @@
-.task-form-container {
-    margin-bottom: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+
+.center {
+    position: relative;
+    padding: 30px 50px;
+    border-radius: 10px;
 }
 
-.task-form {
-    display: flex;
-    flex-direction: column;
+h2 {
+    margin-left: 50px;
+    margin-top: 50px;
 }
 
-.task-form div {
-    margin-bottom: 10px;
-}
-
-.task-form label {
+.center h1 {
+    font-size: 2em;
+    border-left: 5px solid dodgerblue;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
     font-weight: bold;
 }
 
-.task-form input,
-.task-form textarea,
-.task-form select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 90%;
+.center .input-box, .inputbox-date, .inputbox-select {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 22px;
 }
 
-.task-form button {
-    padding: 8px 16px;
-    border: none;
-    background-color: #4679BD;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.center .input-box input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
 }
 
-.task-form button:hover {
-    background-color: #3d6da9;
+.center .input-box:last-child {
+    margin-bottom: 0;
+}
+
+.center .input-box span {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    font-size: 1em;
+    transition: 0.6s;
+    font-family: sans-serif;
+}
+
+.center .input-box input:focus ~ span,
+.center .input-box input:valid ~ span {
+    transform: translateX(-13px) translateY(-35px);
+    font-size: 1em;
+}
+
+.center .input-box [type="button"] {
+    width: 50%;
+    background: dodgerblue;
+    color: #fff;
+    border: #fff;
+}
+
+.center .input-box:hover [type="button"] {
+    background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+.center .inputbox-date,
+.center .inputbox-select {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 18px;
+}
+
+.center .inputbox-date input,
+.center .inputbox-select select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+.center .inputbox-date span,
+.center .inputbox-select span {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    font-size: 1em;
+    transition: 0.6s;
+    font-family: sans-serif;
+}
+
+.center .inputbox-date input:focus ~ span,
+.center .inputbox-date input:valid ~ span,
+.center .inputbox-select select:focus ~ span,
+.center .inputbox-select select:valid ~ span {
+    transform: translateX(-13px) translateY(-35px);
+    font-size: 1em;
+}
+
+.center .inputbox-date [type="button"],
+.center .inputbox-select [type="button"] {
+    width: 50%;
+    background: dodgerblue;
+    color: #fff;
+    border: #fff;
+}
+
+.center .inputbox-date:hover [type="button"],
+.center .inputbox-select:hover [type="button"] {
+    background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+
+.center label {
+    position: absolute;
+    top: -20px; /* Adjusted to 20px to position labels 10px above input fields */
+    left: 10px;
+    font-size: 1em;
+    transition: 0.6s;
+    font-family: sans-serif;
 }
