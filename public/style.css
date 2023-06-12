@@ -1,46 +1,49 @@
-/* Styl dla sekcji nagłówka */
-header {
-    background-color: #f2f2f2;
-    padding: 10px;
-}
-
-.header {
-    color: #333;
-    text-decoration: none;
-    font-size: 44px;
-}
-
 /* Styl dla nawigacji */
-nav {
-    background-color: #333;
-    padding: 10px;
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    list-style-type: none;
+    background-color: #282c34;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+li {
+    padding: 6px 0;
 }
 
-nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav li:last-child {
-    margin-right: 0;
-}
-
-nav a {
-    color: #fff;
+a {
+    position: relative;
+    display: block;
+    padding: 4px 30px 4px 0;
+    font-family: Lato, sans-serif;
+    color: #ecf0f1;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s;
 }
 
-nav a:hover {
-    color: #f2f2f2;
+a::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #3498db;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
 }
+
+a:hover {
+    color: #d7d7d7;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 
 .error {
     color: red;
@@ -334,24 +337,6 @@ nav a:hover {
     outline: none;
 }
 
-.welcome-text {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.welcome-text {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 10px;
-}
 
 .sign-out-button {
     padding: 8px 12px;
@@ -360,7 +345,6 @@ nav a:hover {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: right;
 }
 
 /*dashed border icon animations*/
@@ -425,3 +409,33 @@ nav a:hover {
     justify-content: center;
 }
 
+/*Header*/
+
+.header-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.header {
+    text-decoration: none;
+    color: black;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.welcome-text {
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 10px
+}
+
+.sign-out-button {
+    margin-left: 10px;
+    margin-right: 20px;
+}

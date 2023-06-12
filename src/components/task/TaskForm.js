@@ -18,11 +18,9 @@ function TaskForm() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        const newTaskId = uuidv4();
+        
 
         const task = {
-            id: newTaskId,
             name: taskName,
             description: description,
             startDate: startDate,
