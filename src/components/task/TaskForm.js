@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {addTaskToProjectApiCall} from '../../apiCalls/projectApiCalls';
 import {v4 as uuidv4} from 'uuid';
+import {Link} from "react-router-dom";
 
 function TaskForm() {
     const [taskName, setTaskName] = useState('');
@@ -106,9 +107,12 @@ function TaskForm() {
                             <option value="Complete">Complete</option>
                         </select>
                     </div>
-                    <button type="submit" className="add-task-button" onClick={handleFormSubmit}>
-                        Add Task
-                    </button>
+                    <div className="project-details-buttons">
+                        <Link to={handleFormSubmit} className="add-button">
+                            Add task
+                        </Link>
+                    </div>
+
                 </form>
             </div>
         </div>
