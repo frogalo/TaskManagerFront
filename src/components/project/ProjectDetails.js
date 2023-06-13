@@ -155,7 +155,7 @@ function ProjectDetails() {
                 isOpen={showTaskDetailsModal}
                 onRequestClose={handleCloseModal}
                 contentLabel="Task Details"
-                className="task-details-modal"
+                className={`task-details-modal ${selectedTask && selectedTask.status.replace(/\s/g, '_').toLowerCase()}`}
                 overlayClassName="task-details-overlay"
                 appElement={document.getElementById('root')}
                 onClick={handleOverlayClick}

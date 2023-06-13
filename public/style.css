@@ -270,6 +270,18 @@ a:hover::after {
     z-index: 9999; /* Add this line to ensure the modal is on top of other elements */
 }
 
+.task-details-modal.pending {
+    background-color: #e1cdcd; /* Set the background color for the "pending" status */
+}
+
+.task-details-modal.in_progress {
+    background-color: #ffefd6; /* Set the background color for the "in_progress" status */
+}
+
+.task-details-modal.complete {
+    background-color: #cdf6d5; /* Set the background color for the "completed" status */
+}
+
 .task-details-overlay {
     position: fixed;
     top: 0;
