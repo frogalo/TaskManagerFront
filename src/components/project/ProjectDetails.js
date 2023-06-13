@@ -85,7 +85,11 @@ function ProjectDetails() {
                 });
         }
     };
-
+    const avatarImages = [imgAvatar1, imgAvatar2, imgAvatar3];
+    const getRandomAvatar = () => {
+        const randomIndex = Math.floor(Math.random() * avatarImages.length);
+        return avatarImages[randomIndex];
+    };
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -102,14 +106,14 @@ function ProjectDetails() {
     return (
         <div className="project-details">
             <div>
-            <h1 className="project-details-title">{project.name}</h1>
-            <p className="project-details-description">{project.description}</p>
-            <p className="project-details-date">
-                Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'not defined'}
-            </p>
-            <p className="project-details-date">
-                End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : 'not defined'}
-            </p>
+                <h1 className="project-details-title">{project.name}</h1>
+                <p className="project-details-description">{project.description}</p>
+                <p className="project-details-date">
+                    Start Date: {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'not defined'}
+                </p>
+                <p className="project-details-date">
+                    End Date: {project.endDate ? new Date(project.endDate).toLocaleDateString() : 'not defined'}
+                </p>
             </div>
             <div className="project-details-buttons">
                 <a href={`/projects/edit?projectId=${projectId}`} className="add-button">Edit project</a>
@@ -127,15 +131,26 @@ function ProjectDetails() {
                             onClick={() => handleTaskClick(task)}
                         >
                             <div className="project-details-task-content">
-                                <h3>{task.name}</h3>
-                                <p>Status: {task.status}</p>
+                                <img
+                                    src={getRandomAvatar()}
+                                    alt="Avatar"
+                                    className="avatar"
+                                />
+                                <div className="task-details-content">
+                                    <h3>{task.name}</h3>
+                                </div>
+                                <div className="task-details-task-status">
+                                    <p>Status: {task.status}</p>
+                                </div>
                             </div>
                         </div>
+
                     ))
                 ) : (
                     <p className="project-details-no-tasks">No tasks found for this project.</p>
                 )}
             </div>
+
             <Modal
                 isOpen={showTaskDetailsModal}
                 onRequestClose={handleCloseModal}
@@ -179,8 +194,11 @@ function ProjectDetails() {
                                 {selectedTask.comments.map(comment => (
                                     <tr key={comment.id}>
                                         <td>
-                                            <img src={`img_avatar${comment.user.id % 3 + 1}.png`} alt="Avatar" className="avatar" />
-                                            {comment.user.name}
+                                            <img
+                                                src={getRandomAvatar()}
+                                                alt="Avatar"
+                                                className="avatar"
+                                            />
                                         </td>
                                         <td>{comment.createdDate}</td>
                                         <td>{comment.content}</td>
@@ -189,21 +207,21 @@ function ProjectDetails() {
                                 {/* Example comments */}
                                 <tr>
                                     <td>
-                                        <img src={imgAvatar1} alt="Avatar" className="avatar" />                                        John Doe
+                                        <img src={imgAvatar1} alt="Avatar" className="avatar"/> John Doe
                                     </td>
                                     <td>2023-06-10</td>
                                     <td>This is an example comment.</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src={imgAvatar2} alt="Avatar" className="avatar" />                                        Jane Smith
+                                        <img src={imgAvatar2} alt="Avatar" className="avatar"/> Jane Smith
                                     </td>
                                     <td>2023-06-11</td>
                                     <td>This is another example comment.</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src={imgAvatar3} alt="Avatar" className="avatar" />                                        Mike Johnson
+                                        <img src={imgAvatar3} alt="Avatar" className="avatar"/> Mike Johnson
                                     </td>
                                     <td>2023-06-12</td>
                                     <td>This is a third example comment.</td>

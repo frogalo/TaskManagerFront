@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {deleteProjectApiCall, getProjectApiCall} from '../../apiCalls/projectApiCalls';
 import trashIcon from '../../images/trash.png';
 
+
 function ProjectList() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);

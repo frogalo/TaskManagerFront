@@ -81,8 +81,9 @@ a:hover::after {
 }
 
 .project-table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    margin-left: 3rem;
 }
 
 .project-table th,
@@ -144,7 +145,7 @@ a:hover::after {
 /*==================details==================*/
 
 .project-details {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     background-color: var(--background);
@@ -156,7 +157,6 @@ a:hover::after {
     color: var(--text);
     margin-bottom: 10px;
 }
-
 
 
 .project-details-subtitle {
@@ -191,6 +191,7 @@ a:hover::after {
 
 .project-details-task-content {
     background: #528cd5;
+    margin-bottom: 15px;
 }
 
 .project-details-task.before {
@@ -516,7 +517,27 @@ a:hover::after {
 }
 
 
-
 .footer {
     margin-top: 50px;
 }
+
+.project-details-task-content {
+    display: flex;
+    align-items: center;
+}
+
+.project-details-task-content .avatar {
+    margin-right: 10px;
+    margin-left: 40px;
+}
+
+.task-details-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.task-details-task-status{
+    width: 30%;
+}
+
