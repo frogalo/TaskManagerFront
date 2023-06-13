@@ -255,6 +255,7 @@ a:hover::after {
     margin: 0;
     position: relative;
     padding-top: 10px;
+    max-width: 50%;
 }
 
 .task-details-modal {
@@ -279,7 +280,10 @@ a:hover::after {
 }
 
 .task-details-modal.complete {
-    background-color: #cdf6d5; /* Set the background color for the "completed" status */
+    background-color: #e5ffe5; /* Set the background color for the "completed" status */
+}
+.task-details-modal.active {
+    background-color: #c2f0ff; /* Set the background color for the "completed" status */
 }
 
 .task-details-overlay {
@@ -309,7 +313,7 @@ a:hover::after {
 .add-comment-button {
     padding: 8px 16px;
     border: none;
-    background-color: #4679bd;
+    background-color: var(--accent2);
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -319,8 +323,8 @@ a:hover::after {
 .edit-button:hover,
 .status-button:hover,
 .complete-button:hover,
-.add-comment-button {
-    background-color: #3d6da9;
+.add-comment-button:hover {
+    background-color: var(--accent);
 }
 
 .delete-button {
@@ -340,12 +344,6 @@ a:hover::after {
     transform: scale(1.2);
 }
 
-.edit-button:hover,
-.status-button:hover,
-.complete-button:hover,
-.add-comment-button {
-    background-color: #528cd5;
-}
 
 .edit-button:focus,
 .status-button:focus,
@@ -482,7 +480,8 @@ a:hover::after {
 }
 
 .comment-table th {
-    background-color: #f2f2f2;
+    background-color: var(--accent2);
+    color: white;
     font-weight: bold;
 }
 

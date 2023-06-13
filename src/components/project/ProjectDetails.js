@@ -123,7 +123,7 @@ function ProjectDetails() {
                 {project.tasks && project.tasks.length > 0 ? (
                     project.tasks.map((task) => (
                         <div
-                            key={task.id}
+                            key={task.id} // Use the task ID as the key
                             className={`project-details-task ${task.status.replace(/\s/g, '_').toLowerCase()}`}
                             id={`task_${task.id}`}
                             onMouseEnter={() => handleTaskHover(task.id)}

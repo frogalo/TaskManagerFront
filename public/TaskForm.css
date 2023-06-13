@@ -163,3 +163,9 @@ h2 {
     margin-bottom: 60px;
     font-weight: bold;
 }
+
+.error-message {
+    color: red;
+    margin-top: -10px;
+    font-size: 12px;
+}
