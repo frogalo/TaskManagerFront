@@ -162,7 +162,16 @@ function ProjectDetails() {
             >
                 {selectedTask && (
                     <div>
-                        <h2>{selectedTask.name}</h2>
+                        <div>
+                            <p className="task-header">{selectedTask.name}</p>
+                            <span className="author-label">Author:</span>
+                            <img
+                                src={getRandomAvatar()}
+                                alt="Avatar"
+                                className="avatar"
+                            />
+                            <span className="name-surname">Jan Kowalski</span>
+                        </div>
                         <p>Description: {selectedTask.description}</p>
                         <p>
                             Start Date:{' '}

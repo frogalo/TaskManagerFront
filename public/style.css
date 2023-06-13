@@ -537,7 +537,25 @@ a:hover::after {
     justify-content: center;
 }
 
-.task-details-task-status{
+.task-details-task-status {
     width: 30%;
 }
 
+.task-header {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.author-label {
+    margin-right: 10px;
+}
+
+.name-surname {
+    margin-left: 10px;
+}
