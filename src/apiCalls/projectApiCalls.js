@@ -1,4 +1,5 @@
 const projectsBaseUrl = 'http://localhost:8090/api/projects';
+const tasksBaseUrl = 'http://localhost:8090/api/tasks';
 
 export function getProjectApiCall() {
     return fetch(projectsBaseUrl);
@@ -27,7 +28,7 @@ export function addProjectApiCall(project) {
 
 
 export function deleteTaskApiCall(taskId) {
-    const url = `${projectsBaseUrl}/tasks/${taskId}`;
+    const url = `${tasksBaseUrl}/${taskId}`;
     return fetch(url, {
         method: 'DELETE',
     })
@@ -35,7 +36,7 @@ export function deleteTaskApiCall(taskId) {
             if (response.ok) {
                 return response;
             } else {
-                throw new Error(`Failed to delete task. Status: ${response.status}`);
+                throw new Error(`Failed to delete task. Status: ${response.status}`+ url);
             }
         })
         .catch((error) => {
@@ -78,3 +79,23 @@ export function addTaskToProjectApiCall(projectId, task) {
             throw error;
         });
 }
+
+// export function updateProjectApiCall(projectId, updateData) {
+//     const url = `${projectsBaseUrl}/${projectId}`;
+//     const requestOptions = {
+//         method: 'PATCH',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(updateData),
+//     };
+//
+//     return fetch(url, requestOptions)
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error('Failed to update project');
+//             }
+//             return response.json();
+//         })
+//         .catch((error) => {
+//             throw error;
+//         });
+// }
